@@ -10,32 +10,41 @@ Saat pertama kali dijalankan, muncul error `Invalid src prop` karena Next.js sec
 Untuk mengatasinya, saya mengedit file `next.config.ts` dan mendaftarkan domain penyedia gambar tersebut ke dalam daftar yang diizinkan (allowlist). Saya menambahkan konfigurasi `remotePatterns` dan memasukkan hostname `i.imgur.com`. Setelah server di-*restart*, gambar berhasil dimuat.
 
 ## Soal 2
+![Soal 2](screenshoot/SoalNo2.png)
 
 **Apa yang telah saya pelajari:**
-Pada praktikum ini, saya belajar melakukan *refactoring* dengan memindahkan logika pemanggilan komponen ke dalam komponen pembungkus ( *wrapper*). Saya membuat komponen `Gallery` yang memuat tiga komponen `Profile`, lalu memanggil `<Gallery />` di `page.tsx`. Ini membuat struktur kode di halaman utama menjadi jauh lebih bersih.
-Selain itu, saya belajar tentang *Named Export* pada `export function Gallery()`, sehingga impornya memerlukan kurung kurawal `{ Gallery }`.
+Pada praktikum ini, saya belajar melakukan *refactoring* komponen. Saya membuat komponen `Gallery` yang memuat tiga komponen `Profile`, lalu memanggil `<Gallery />` di `page.tsx`. Ini membuat struktur kode di halaman utama menjadi jauh lebih bersih. Saya juga belajar tentang *Named Export*, sehingga pemanggilannya menggunakan kurung kurawal `{ Gallery }`.
 
 **Bagaimana tampilannya saat ini:**
-Tampilan web masih memunculkan tiga foto profil Katherine Johnson di bawah judul. Namun, karena komponen `Gallery` dibungkus dengan `<div className="columns-3">`, ketiga foto tersebut kini terbagi rata ke dalam tiga kolom yang mengisi ruang layar, berbeda dengan susunan *flex* sebelumnya yang saling berdempetan.
+Karena komponen `Gallery` dibungkus dengan `<div className="columns-3">`, ketiga foto tersebut kini terbagi rata ke dalam tiga kolom yang mengisi ruang layar.
+
+---
+
 ## Soal 3
+![Soal 3](screenshoot/SoalNo3.png)
 
 **Apa yang telah saya pelajari & Mengapa error terjadi:**
-Pada soal ini, saya belajar tentang aturan ketat (strict rules) penulisan sintaks JSX yang berbeda dengan HTML biasa. Error pada kode awal terjadi karena tiga alasan utama yang langsung saya perbaiki:
-1. **Multiple Root Elements:** JSX harus mengembalikan satu elemen tunggal. Solusinya, saya membungkus elemen `<div>` dan `<p>` menggunakan *Fragment* kosong `<> ... </>`.
-2. **Atribut tidak camelCase:** Penggunaan atribut `class` menyebabkan error karena bentrok dengan keyword JavaScript. Saya mengubahnya menjadi `className`.
-3. **Tag tidak ditutup sempurna:** Tag tunggal `<br>` harus ditulis dengan penutup mandiri menjadi `<br />`. Selain itu, penulisan tag bersarang yang tumpang tindih `<b><i>...</b></i>` telah diperbaiki susunannya menjadi `<b><i>...</i></b>`.
+Error pada kode awal terjadi karena melanggar aturan ketat JSX:
+1. **Multiple Root Elements:** JSX harus mengembalikan satu elemen tunggal. Solusinya, saya membungkus elemen menggunakan *Fragment* kosong `<> ... </>`.
+2. **Atribut tidak camelCase:** Atribut `class` bentrok dengan keyword JavaScript. Saya mengubahnya menjadi `className`.
+3. **Tag tidak ditutup sempurna:** Tag `<br>` saya perbaiki menjadi `<br />`, dan susunan tag bersarang yang tumpang tindih `<b><i>...</b></i>` diperbaiki menjadi `<b><i>...</i></b>`.
+
+---
+
 ## Soal 4
+![Soal 4](screenshoot/SoalNo4.png)
 
 **Apa yang telah saya pelajari & Mengapa error terjadi:**
-Pada soal ini, saya belajar cara menyisipkan nilai JavaScript (variabel/objek) ke dalam JSX menggunakan kurung kurawal `{}`. 
-Error pada kode asli terjadi karena kode mencoba merender seluruh objek `person` secara langsung di dalam tag `<h1>{person}'s Todos</h1>`. React tidak mengizinkan objek dirender langsung sebagai *child* dari elemen HTML.
-**Solusinya:** Saya memperbaikinya dengan mengakses properti *string* spesifik dari objek tersebut menggunakan *dot notation*, yaitu mengubahnya menjadi `<h1>{person.name}'s Todos</h1>`.
+Error terjadi karena kode asli mencoba merender objek `person` secara utuh ke layar (`{person}'s Todos`), yang mana tidak diizinkan di React. 
+Saya memperbaikinya dengan memanggil properti spesifik dari objek tersebut, yaitu `{person.name}`. Saya juga belajar menerapkan *styling* dinamis dengan atribut `style={person.theme}`.
 
-Selain itu, saya juga belajar cara memberikan gaya (*styling*) dinamis pada elemen dengan memberikan objek `person.theme` pada atribut `style={person.theme}`.
+---
+
 ## Soal 5
+![Soal 5](screenshoot/SoalNo5.png)
 
 **Apakah ada perbedaan pada tampilan web saat ini?**
-Tidak ada perbedaan sama sekali pada tampilan web saat ini secara visual (gambar tetap memunculkan indikator link mati dari Imgur, dan gaya visual elemen tetap sama). 
+Secara visual tidak ada perbedaan tampilan (gambar tetap menunjukkan indikator *link* mati dari Imgur). 
 
 **Apa yang telah saya pelajari:**
-Meskipun secara visual (*User Interface*) tidak berubah, secara struktur kode (*Source Code*) terjadi perubahan besar. Saya belajar memisahkan data dari elemen UI dengan cara mengekstrak *string* URL gambar `https://i.imgur.com/7vQd0fPs.jpg` ke dalam properti `imageUrl` pada objek `person`. Kemudian, URL tersebut dipanggil di dalam JSX menggunakan kurung kurawal `{person.imageUrl}`. Ini membuat kode menjadi lebih dinamis, bersih, dan mudah dikelola jika suatu saat datanya berasal dari API atau *database*.
+Meskipun tampilan tidak berubah, saya belajar memisahkan data (*hardcoded*) dari elemen UI. Saya mengekstrak URL gambar ke dalam objek `person` sebagai `imageUrl`, lalu memanggilnya secara dinamis menggunakan `{person.imageUrl}`. Ini membuat kode jauh lebih rapi dan siap jika datanya nanti berasal dari *database* atau API.
