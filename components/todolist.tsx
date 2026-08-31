@@ -1,6 +1,8 @@
+const baseUrl = 'https://i.imgur.com/';
 const person = {
   name: 'Gregorio Y. Zara',
-  imageUrl: 'https://i.imgur.com/7vQd0fPs.jpg', // URL diekstrak ke sini
+  imageId: '7vQD0fP',
+  imageSize: 'b', // Diubah dari 's' (small) menjadi 'b' (big) sesuai catatan dosen
   theme: {
     backgroundColor: 'black',
     color: 'pink'
@@ -13,8 +15,8 @@ export default function TodoList() {
       <h1>{person.name}'s Todos</h1>
       <img
         className="avatar"
-        src="https://i.imgur.com/7vQd0fPs.jpg"
-        alt="Gregorio Y. Zara"
+        src={`${baseUrl}${person.imageId}${person.imageSize}.jpg`} // Perbaikan menggunakan Template Literals
+        alt={person.name}
       />
       <ul>
         <li>Improve the videophone</li>
@@ -22,6 +24,5 @@ export default function TodoList() {
         <li>Work on the alcohol-fuelled engine</li>
       </ul>
     </div>
-    
   );
 }

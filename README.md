@@ -48,3 +48,12 @@ Secara visual tidak ada perbedaan tampilan (gambar tetap menunjukkan indikator *
 
 **Apa yang telah saya pelajari:**
 Meskipun tampilan tidak berubah, saya belajar memisahkan data (*hardcoded*) dari elemen UI. Saya mengekstrak URL gambar ke dalam objek `person` sebagai `imageUrl`, lalu memanggilnya secara dinamis menggunakan `{person.imageUrl}`. Ini membuat kode jauh lebih rapi dan siap jika datanya nanti berasal dari *database* atau API.
+## Soal 6
+![Soal 6](screenshoot/SoalNo6.png)
+
+**Apa yang telah saya pelajari:**
+Pada soal ini, saya belajar cara menggabungkan beberapa variabel menjadi satu *string* di dalam atribut JSX. Kesalahan pada kode awal terjadi karena pemanggilan variabel berada di dalam tanda kutip ganda (`""`), sehingga React membacanya sebagai teks literal. 
+Solusinya adalah menggunakan *Template Literals* (backtick `` ` ``) agar variabel dapat disisipkan menggunakan simbol `$`. Kodenya saya perbaiki menjadi: `src={`${baseUrl}${person.imageId}${person.imageSize}.jpg`}`.
+
+**Bagaimana tampilannya saat ini:**
+Setelah kode diperbaiki dan variabel `imageSize` diubah menjadi `'b'`, gambar Gregorio Y. Zara berhasil muncul dengan ukuran yang lebih besar! Hal ini membuktikan bahwa penggabungan URL (*string concatenation*) pada JSX berhasil berjalan dengan baik.
