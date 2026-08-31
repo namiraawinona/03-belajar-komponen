@@ -24,3 +24,11 @@ Pada soal ini, saya belajar tentang aturan ketat (strict rules) penulisan sintak
 1. **Multiple Root Elements:** JSX harus mengembalikan satu elemen tunggal. Solusinya, saya membungkus elemen `<div>` dan `<p>` menggunakan *Fragment* kosong `<> ... </>`.
 2. **Atribut tidak camelCase:** Penggunaan atribut `class` menyebabkan error karena bentrok dengan keyword JavaScript. Saya mengubahnya menjadi `className`.
 3. **Tag tidak ditutup sempurna:** Tag tunggal `<br>` harus ditulis dengan penutup mandiri menjadi `<br />`. Selain itu, penulisan tag bersarang yang tumpang tindih `<b><i>...</b></i>` telah diperbaiki susunannya menjadi `<b><i>...</i></b>`.
+## Soal 4
+
+**Apa yang telah saya pelajari & Mengapa error terjadi:**
+Pada soal ini, saya belajar cara menyisipkan nilai JavaScript (variabel/objek) ke dalam JSX menggunakan kurung kurawal `{}`. 
+Error pada kode asli terjadi karena kode mencoba merender seluruh objek `person` secara langsung di dalam tag `<h1>{person}'s Todos</h1>`. React tidak mengizinkan objek dirender langsung sebagai *child* dari elemen HTML.
+**Solusinya:** Saya memperbaikinya dengan mengakses properti *string* spesifik dari objek tersebut menggunakan *dot notation*, yaitu mengubahnya menjadi `<h1>{person.name}'s Todos</h1>`.
+
+Selain itu, saya juga belajar cara memberikan gaya (*styling*) dinamis pada elemen dengan memberikan objek `person.theme` pada atribut `style={person.theme}`.
