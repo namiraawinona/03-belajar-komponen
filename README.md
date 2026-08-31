@@ -32,3 +32,10 @@ Error pada kode asli terjadi karena kode mencoba merender seluruh objek `person`
 **Solusinya:** Saya memperbaikinya dengan mengakses properti *string* spesifik dari objek tersebut menggunakan *dot notation*, yaitu mengubahnya menjadi `<h1>{person.name}'s Todos</h1>`.
 
 Selain itu, saya juga belajar cara memberikan gaya (*styling*) dinamis pada elemen dengan memberikan objek `person.theme` pada atribut `style={person.theme}`.
+## Soal 5
+
+**Apakah ada perbedaan pada tampilan web saat ini?**
+Tidak ada perbedaan sama sekali pada tampilan web saat ini secara visual (gambar tetap memunculkan indikator link mati dari Imgur, dan gaya visual elemen tetap sama). 
+
+**Apa yang telah saya pelajari:**
+Meskipun secara visual (*User Interface*) tidak berubah, secara struktur kode (*Source Code*) terjadi perubahan besar. Saya belajar memisahkan data dari elemen UI dengan cara mengekstrak *string* URL gambar `https://i.imgur.com/7vQd0fPs.jpg` ke dalam properti `imageUrl` pada objek `person`. Kemudian, URL tersebut dipanggil di dalam JSX menggunakan kurung kurawal `{person.imageUrl}`. Ini membuat kode menjadi lebih dinamis, bersih, dan mudah dikelola jika suatu saat datanya berasal dari API atau *database*.

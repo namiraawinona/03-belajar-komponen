@@ -1,5 +1,6 @@
 const person = {
   name: 'Gregorio Y. Zara',
+  imageUrl: 'https://i.imgur.com/7vQd0fPs.jpg', // URL diekstrak ke sini
   theme: {
     backgroundColor: 'black',
     color: 'pink'
@@ -21,5 +22,6 @@ export default function TodoList() {
         <li>Work on the alcohol-fuelled engine</li>
       </ul>
     </div>
+    
   );
 }
