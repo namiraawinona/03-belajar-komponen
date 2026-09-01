@@ -1,6 +1,7 @@
 import { Gallery } from "../components/gallery";
 import TodoList from "../components/todolist";
 import MyGallery from "../components/mygallery";
+import MyProfile from "../components/myprofile";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <TodoList />
       <hr style={{ margin: "20px 0" }} />
       <MyGallery />
+      <hr style={{ margin: "20px 0" }} />
     </section>
   );
 }

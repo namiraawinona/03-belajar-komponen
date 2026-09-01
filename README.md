@@ -57,3 +57,22 @@ Solusinya adalah menggunakan *Template Literals* (backtick `` ` ``) agar variabe
 
 **Bagaimana tampilannya saat ini:**
 Setelah kode diperbaiki dan variabel `imageSize` diubah menjadi `'b'`, gambar Gregorio Y. Zara berhasil muncul dengan ukuran yang lebih besar! Hal ini membuktikan bahwa penggabungan URL (*string concatenation*) pada JSX berhasil berjalan dengan baik.
+## Soal 7
+![Soal 7](screenshoot/SoalNo7.png)
+
+**Apa yang telah saya pelajari:**
+Pada praktikum ini, saya belajar mengoptimalkan kode dengan mengidentifikasi duplikasi UI dan mengekstraknya menjadi komponen *reusable* (dapat digunakan kembali). Saya mengekstrak *markup* `<section>` yang berulang di `MyGallery` menjadi komponen baru bernama `MyProfile`.
+
+Untuk membuat komponen tersebut dinamis, saya menggunakan **Props** (`name`, `imageId`, `profession`, `awardsCount`, `awards`, dan `discovery`). Dengan cara ini, struktur HTML hanya ditulis satu kali di `MyProfile`, namun bisa merender data yang berbeda-beda saat dipanggil di dalam `MyGallery`.
+
+**Bagaimana tampilannya saat ini:**
+Tampilan web bertambah dengan memunculkan daftar "Notable Scientists" yang berisi profil Maria Skłodowska-Curie dan Katsuko Saruhashi di bagian paling bawah halaman, lengkap dengan daftar profesi, penghargaan, dan penemuan mereka.
+## Soal 8
+![Soal 8](screenshoot/SoalNo8.png)
+
+**Apa yang telah saya pelajari:**
+Pada praktikum ini, saya belajar memberikan logika *conditional* (pengkondisian) di dalam komponen React berdasarkan nilai *props*.
+Pada komponen `MyAvatar`, saya mengekstrak prop `size` lalu menggunakan *Ternary Operator* untuk mengecek kondisinya: `const imageSize = size < 90 ? 's' : 'b';`. Variabel `imageSize` tersebut kemudian dikirimkan ke dalam fungsi `getImageUrlV2`. 
+
+**Bagaimana tampilannya saat ini:**
+Di halaman web, berhasil dirender dua buah komponen `MyAvatar` untuk Gregorio Y. Zara. Avatar pertama menggunakan prop `size={40}` (merender gambar kecil/small), dan avatar kedua menggunakan prop `size={120}` (merender gambar besar/big). Walaupun gambarnya mati karena *link* Imgur tidak valid, inspeksi elemen menunjukkan bahwa URL-nya sudah merender ukuran dengan benar sesuai batas logika 90 piksel.
