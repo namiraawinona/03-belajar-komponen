@@ -76,3 +76,12 @@ Pada komponen `MyAvatar`, saya mengekstrak prop `size` lalu menggunakan *Ternary
 
 **Bagaimana tampilannya saat ini:**
 Di halaman web, berhasil dirender dua buah komponen `MyAvatar` untuk Gregorio Y. Zara. Avatar pertama menggunakan prop `size={40}` (merender gambar kecil/small), dan avatar kedua menggunakan prop `size={120}` (merender gambar besar/big). Walaupun gambarnya mati karena *link* Imgur tidak valid, inspeksi elemen menunjukkan bahwa URL-nya sudah merender ukuran dengan benar sesuai batas logika 90 piksel.
+## Soal 9
+![Soal 9](screenshoot/SoalNo9.png)
+
+**Apa yang telah saya pelajari:**
+Pada soal terakhir ini, saya mempelajari konsep komposisi komponen menggunakan prop bawaan React, yaitu `children`. 
+Alih-alih menuliskan elemen pembungkus (wrapper) berulang kali, saya mengekstraknya menjadi komponen `<Card>`. Segala sesuatu (elemen JSX bersarang) yang ditempatkan di antara tag pembuka `<Card>` dan penutup `</Card>` secara otomatis dikirimkan ke dalam komponen sebagai prop `children`. Hal ini membuat kode menjadi jauh lebih bersih, modular, dan mudah dikelola.
+
+**Bagaimana tampilannya saat ini:**
+Di bagian terbawah halaman web, muncul dua buah elemen *card* (kartu). Kartu pertama berisi judul "Foto" beserta gambar ilmuwan Aklilu Lemma, sedangkan kartu kedua berisi judul "Tentang" beserta teks biografi singkatnya. Keduanya dibungkus oleh struktur UI yang konsisten berkat komponen `<Card>`.
